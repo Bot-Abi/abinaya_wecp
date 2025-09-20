@@ -1,4 +1,4 @@
-import { Inject, Injectable, Optional } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { HttpClient } from "@angular/common/http";
 import { Transaction } from "../types/Transaction";
@@ -13,7 +13,7 @@ import { Account } from "../types/Account";
 export class BankService {
   private baseUrl = `${environment.apiUrl}`;
 
-  constructor(@Optional() private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   addCustomer(customer: Customer): Observable<Customer> {
     return this.http.post<Customer>(`${this.baseUrl}/customers`, customer);
